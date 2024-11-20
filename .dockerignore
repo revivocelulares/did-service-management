@@ -1,0 +1,39 @@
+# Version control
+.git
+.gitignore
+
+# Dependencies
+node_modules
+npm-debug.log
+
+# Environment variables
+.env
+.env.*
+
+# Development files
+src/
+tests/
+__tests__/
+*.test.ts
+*.spec.ts
+
+# IDE files
+.vscode/
+.idea/
+
+# Build artifacts
+dist/
+coverage/
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation
+README.md
+docs/
+
+# Misc
+.DS_Store
+*.log
