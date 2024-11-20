@@ -1,123 +1,123 @@
-# DID Management Service
+# Servicio de Gestión de DID
 
-A secure TypeScript-based service for managing Decentralized Identifiers (DIDs) following the W3C DID specification. This service implements the did:key method with ED25519 cryptographic operations.
+Un servicio seguro basado en TypeScript para gestionar Identificadores Descentralizados (DIDs) siguiendo la especificación W3C DID. Este servicio implementa el método did:key con operaciones criptográficas ED25519.
 
-## Features
+## Características
 
-- ✨ Create DIDs using the did:key method
-- 🔐 ED25519 cryptographic key generation
-- 📄 DID document resolution
-- 🔒 Secure private key encryption
-- 🗄️ MongoDB persistence
-- 🐳 Docker deployment support
-- 🧪 Comprehensive test suite
+- ✨ Creación de DIDs usando el método did:key
+- 🔐 Generación de claves criptográficas ED25519
+- 📄 Resolución de documentos DID
+- 🔒 Encriptación segura de claves privadas
+- 🗄️ Persistencia en MongoDB
+- 🐳 Soporte para despliegue con Docker
+- 🧪 Suite completa de pruebas
 
-## Security Features
+## Características de Seguridad
 
-- ED25519 for cryptographic operations
-- AES-256-GCM encryption for private keys
-- Secure key generation using cryptographically secure random numbers
-- Private keys are encrypted before storage
-- Environment-based encryption key configuration
+- ED25519 para operaciones criptográficas
+- Encriptación AES-256-GCM para claves privadas
+- Generación segura de claves usando números aleatorios criptográficamente seguros
+- Las claves privadas se encriptan antes de almacenarse
+- Configuración de clave de encriptación basada en variables de entorno
 
-## Prerequisites
+## Requisitos Previos
 
-- Node.js 18 or higher
-- MongoDB 4.4 or higher
-- Docker and Docker Compose (for containerized deployment)
+- Node.js 18 o superior
+- MongoDB 4.4 o superior
+- Docker y Docker Compose (para despliegue en contenedores)
 
-## Installation
+## Instalación
 
-1. Clone the repository
-2. Create a `.env` file:
+1. Clonar el repositorio
+2. Crear un archivo `.env`:
    ```env
    MONGODB_URI=mongodb://localhost:27017/did-service
-   ENCRYPTION_KEY=your-secure-encryption-key
+   ENCRYPTION_KEY=tu-clave-segura-de-encriptacion
    PORT=3000
    ```
-3. Install dependencies:
+3. Instalar dependencias:
    ```bash
    npm install
    ```
 
-## Development
+## Desarrollo
 
-1. Start MongoDB locally or using Docker:
+1. Iniciar MongoDB localmente o usando Docker:
    ```bash
    docker-compose up mongodb
    ```
 
-2. Run the development server:
+2. Ejecutar el servidor de desarrollo:
    ```bash
    npm run dev
    ```
 
-## Testing
+## Pruebas
 
-Run the test suite:
+Ejecutar la suite de pruebas:
 ```bash
 npm test
 ```
 
-## Production Deployment
+## Despliegue en Producción
 
-### Using Docker Compose
+### Usando Docker Compose
 
-1. Set environment variables:
+1. Configurar variables de entorno:
    ```bash
    cp .env.example .env
    ```
 
-2. Build and run services:
+2. Construir y ejecutar servicios:
    ```bash
    docker-compose up --build
    ```
 
-### Manual Deployment
+### Despliegue Manual
 
-1. Build the TypeScript code:
+1. Construir el código TypeScript:
    ```bash
    npm run build
    ```
 
-2. Start the production server:
+2. Iniciar el servidor de producción:
    ```bash
    npm start
    ```
 
-## API Endpoints
+## Endpoints de la API
 
-### Create DID
+### Crear DID
 - **POST** `/api/did/create`
-- Creates a new DID with ED25519 keys
-- Returns: DID Document
+- Crea un nuevo DID con claves ED25519
+- Retorna: Documento DID
 
-### Resolve DID
+### Resolver DID
 - **GET** `/api/did/resolve/:did`
-- Resolves an existing DID
-- Returns: DID Document
+- Resuelve un DID existente
+- Retorna: Documento DID
 
-## Environment Variables
+## Variables de Entorno
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `MONGODB_URI` | MongoDB connection string | `mongodb://localhost:27017/did-service` |
-| `ENCRYPTION_KEY` | Key for encrypting private keys | Required |
-| `PORT` | Server port | `3000` |
-| `NODE_ENV` | Environment mode | `development` |
+| Variable | Descripción | Valor por defecto |
+|----------|-------------|-------------------|
+| `MONGODB_URI` | Cadena de conexión MongoDB | `mongodb://localhost:27017/did-service` |
+| `ENCRYPTION_KEY` | Clave para encriptar claves privadas | Requerido |
+| `PORT` | Puerto del servidor | `3000` |
+| `NODE_ENV` | Modo de entorno | `development` |
 
-## Project Structure
+## Estructura del Proyecto
 
 ```
 .
 ├── src/
-│   ├── controllers/    # Request handlers
-│   ├── models/         # Database models
-│   ├── services/       # Business logic
-│   ├── types/          # TypeScript types
-│   ├── routes/         # API routes
-│   └── index.ts        # Application entry
-├── tests/             # Test files
-├── Dockerfile         # Container definition
-└── docker-compose.yml # Container orchestration
+│   ├── controllers/    # Manejadores de peticiones
+│   ├── models/         # Modelos de base de datos
+│   ├── services/       # Lógica de negocio
+│   ├── types/          # Tipos de TypeScript
+│   ├── routes/         # Rutas de la API
+│   └── index.ts        # Entrada de la aplicación
+├── tests/             # Archivos de prueba
+├── Dockerfile         # Definición del contenedor
+└── docker-compose.yml # Orquestación de contenedores
 ```
